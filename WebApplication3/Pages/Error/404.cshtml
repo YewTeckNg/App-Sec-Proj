@@ -1,0 +1,29 @@
+﻿@page
+@model WebApplication3.Pages.errors.error404Model
+@{
+    Layout = "~/Pages/Shared/_LayoutEmpty.cshtml";
+}
+    
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <link rel="stylesheet" href="~/css/lockout.css" asp-append-version="true" />
+</head>
+
+<body>
+    <section class="notFound">
+        <div class="img">
+            <img src="https://assets.codepen.io/5647096/backToTheHomepage.png" alt="Back to the Homepage" />
+            <img src="https://assets.codepen.io/5647096/Delorean.png" alt="El Delorean, El Doc y Marti McFly" />
+        </div>
+        <div class="text">
+            <h1>404</h1>
+            <h2>PAGE NOT FOUND</h2>
+            <h3>BACK TO HOME?</h3>
+            <a href="/Index" class="yes">YES</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">NO</a>
+        </div>
+    </section>
+</body>
+</html>

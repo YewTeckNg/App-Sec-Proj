@@ -1,0 +1,91 @@
+﻿@page
+@*@using WebApplication3.Model;
+@inject SignInManager<ApplicationUser> SignInManager*@
+@model IndexModel
+@{
+    //ViewData["Title"] = "Home page";
+}
+
+
+
+@{
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" asp-for="@Model.FullName"></label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="@Model.FullName" readonly />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" asp-for="@Model.Password"></label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="@Model.Password" readonly />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" asp-for="@Model.Email"></label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="@Model.Email" readonly />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">CreditCard Encrypted</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="@Model.CreditCard_Encrypted" readonly />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">CreditCard Decrypted</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="@Model.CreditCard_Decrypted" readonly />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" asp-for="@Model.MobileNo"></label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="@Model.MobileNo" readonly />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" asp-for="@Model.DeliveryAddress"></label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="@Model.DeliveryAddress" readonly />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" asp-for="@Model.AboutMe"></label>
+                    <div class="col-sm-10">
+                        <input class="form-control" asp-for="@Model.AboutMe" readonly />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="col-sm-2 col-form-label"></label>
+                    <span asp-validation-for="Upload" class="text-danger"></span>
+                </div>
+                <img id="imgPreview" class="rounded-circle" style="height:300px;width:300px;object-fit:cover;margin-left:120px"
+                                         src="@(string.IsNullOrEmpty(@Model.ImageURL) ? "/uploads/user.png" : @Model.ImageURL)"
+                                         onerror="this.src='/uploads/user.png'" />
+                                    <input class="form-control d-none" asp-for="@Model.ImageURL" />
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <h1 class="display-4">Welcome</h1>
+            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        </div>
+    }
+}
+
